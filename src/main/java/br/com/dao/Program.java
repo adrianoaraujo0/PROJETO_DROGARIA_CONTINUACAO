@@ -4,10 +4,8 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import br.com.bean.FabricanteBean;
-import br.com.bean.ProdutoBean;
 import br.com.domain.Fabricante;
-import br.com.domain.Produto;
+import br.com.domain.Usuario;
 import br.com.util.JPAUtil;
 
 public class Program {
@@ -16,17 +14,14 @@ public class Program {
 		// TODO Auto-generated method stub
 
 		EntityManager em = JPAUtil.getEntityManager();
+
+		Usuario d = new Usuario();
+		d.setEmail("BORGESDEMELO@GMAIL.COM");
+		d.setSenha("12567");
 		
-		Fabricante f = new Fabricante("10 DE MAIO");
-		Fabricante faca = new Fabricante("CAREFUL");
-		FabricanteDao dao = new FabricanteDao();
+		UsuarioDao f = new UsuarioDao();
+		f.cadastrar(d);
 		
-		List<Fabricante> l = dao.Listar();
-		
-		for(Fabricante x : l) {
-		
-		System.out.println(x);
-		}
 		
 //
 //		Produto p = new Produto("Velho", 11l, 20.0, f);
